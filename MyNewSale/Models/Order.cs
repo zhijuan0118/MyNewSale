@@ -29,7 +29,7 @@ namespace MyNewSale.Models
         /// 客戶代號
         /// </summary>
         [DisplayName("客戶代號")]
-       // [Required()]
+        [Required()]
         public int CustomerID { get; set; }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace MyNewSale.Models
         /// 業務(員工)代號
         /// </summary>
         [DisplayName("業務(員工)代號")]
-       // [Required()]
+       [Required()]
         public int EmployeeID { get; set; }
 
         /// <summary>
@@ -55,14 +55,14 @@ namespace MyNewSale.Models
         /// 訂單日期
         /// </summary>
         [DisplayName("訂單日期")]
-      //  [Required()]
+        [Required()]
         public string Orderdate { get; set; }
 
         /// <summary>
         /// 需要日期
         /// </summary>
         [DisplayName("需要日期")]
-      //  [Required()]
+        [Required()]
         public string RequireDdate { get; set; }
 
         /// <summary>

@@ -272,7 +272,7 @@ namespace MyNewSale.Models
 					INNER JOIN HR.Employees As C On A.EmployeeID=C.EmployeeID
 					inner JOIN Sales.Shippers As D ON A.ShipperID=D.ShipperID
 					Where (B.Companyname Like @CompanyName Or @CompanyName='') And
-                          (A.OrderId=@OrderID Or @OrderID='') And
+                          (A.OrderId Like @OrderID Or @OrderID='') And
                           (A.EmployeeID= @EmployeeID Or @EmployeeID='') And
                           (A.ShipperId = @ShipperID Or @ShipperID='') And
                           (A.Orderdate = @Orderdate Or @Orderdate='') And
@@ -285,7 +285,7 @@ namespace MyNewSale.Models
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.Add(new SqlParameter("@CompanyName", arg.CompanyName == null ? string.Empty : '%' + arg.CompanyName + '%'));
-                cmd.Parameters.Add(new SqlParameter("@OrderID", arg.OrderID == null ? string.Empty : arg.OrderID));
+                cmd.Parameters.Add(new SqlParameter("@OrderID", arg.OrderID == null ? string.Empty : arg.OrderID+"%"));
                 cmd.Parameters.Add(new SqlParameter("@EmployeeID", arg.EmployeeID == null ? string.Empty : arg.EmployeeID));
                 cmd.Parameters.Add(new SqlParameter("@ShipperID", arg.ShipperID == null ? string.Empty : arg.ShipperID));
                 cmd.Parameters.Add(new SqlParameter("@ShippedDate", arg.ShippedDate == null ? string.Empty : arg.ShippedDate));
